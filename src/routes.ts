@@ -4,7 +4,7 @@ import { all, save, one, update, finishTask, destroy } from './controller/TaskCo
 const routes = Router()
 
 routes.get('/', (req: Request, res: Response) => {
-    return res.status(200).json({msg: 'Ok'})
+    return res.status(200).json({msg: 'API TypeORM'})
 })
 
 routes.get('/tasks', all)
