@@ -12,7 +12,7 @@ routes.get('/tasks/:id', one)
 routes.post('/tasks', save)
 routes.put('/tasks/:id', update)
 routes.patch('/tasks/:id', finishTask)
-
+routes.delete('/tasks/:id', destroy)
 
 
 export default routes
