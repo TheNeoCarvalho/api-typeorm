@@ -8,5 +8,7 @@ routes.get('/', (req: Request, res: Response) => {
 })
 
 routes.get('/tasks', all)
+routes.get('/tasks/:id', one)
+
 
 export default routes
