@@ -38,3 +38,18 @@ export const update = async (req: Request, res: Response) => {
 
 }
 
+export const finishTask = async (req: Request, res: Response) => {
+
+    const {id} = req.params
+    const task = await getRepository(Tasks).update(id, {
+        finished: true
+    })
+
+    if(task.affected > 0){
+        const taskUpdated= await getRepository(Tasks).findOne(id)
+        return res.status(202).json({ msg: "Task Finished" })
+    }
+
+    return res.status(404).json({ msg: "Task not found"})
+
+}
