@@ -23,3 +23,18 @@ export const save = async (req: Request, res: Response) => {
     return res.status(201).json(task)
 
 }
+
+export const update = async (req: Request, res: Response) => {
+
+    const {id} = req.params
+    const task = await getRepository(Tasks).update(id, req.body)
+
+    if(task.affected > 0){
+        const taskUpdated= await getRepository(Tasks).findOne(id)
+        return res.status(202).json(taskUpdated)
+    }
+
+    return res.status(404).json({ msg: "Task not found"})
+
+}
+
