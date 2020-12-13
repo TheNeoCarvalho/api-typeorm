@@ -9,6 +9,7 @@ routes.get('/', (req: Request, res: Response) => {
 
 routes.get('/tasks', all)
 routes.get('/tasks/:id', one)
+routes.post('/tasks', save)
 
 
 export default routes

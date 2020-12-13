@@ -16,3 +16,10 @@ export const one = async (req: Request, res: Response) => {
     return res.status(202).json(task)
 
 }
+
+export const save = async (req: Request, res: Response) => {
+
+    const task = await getRepository(Tasks).save(req.body)
+    return res.status(201).json(task)
+
+}
